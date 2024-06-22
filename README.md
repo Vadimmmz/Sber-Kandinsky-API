@@ -1,5 +1,5 @@
 # Kandinsky API tools
-This is a deadly simple wrapper from [the official Kandinsky API example](https://fusionbrain.ai/docs/doc/api-dokumentaciya/) that
+This is a quite simple script based on [the official Kandinsky API example](https://fusionbrain.ai/docs/doc/api-dokumentaciya/) that
 allows you to create a set number of images and save them.
 
 <img src="images/README.jpg" width="60%" align="center">  
@@ -13,7 +13,7 @@ Get your secret keys from [here](https://fusionbrain.ai/docs/doc/poshagovaya-ins
 
 ```bash
 cd /home
-git clone https://github.com/Vadimmmz/kandinsky.git
+git clone https://github.com/Vadimmmz/Sber-Kandinsky-API.git
 python -m venv env
 
 # Activate virtual environment for Windows
@@ -34,7 +34,6 @@ echo 'API_KEY="YOUR_API_KEY"' > .env \
 ```
 
 ## Quick start
-...
 
 ```python
 generate_image(prompt='Кот сидит на столе и смотрит в окно', filename='cat', image_num=3, folder='folder with cat')
