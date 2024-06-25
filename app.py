@@ -44,6 +44,7 @@ class Text2ImageAPI:
         }
         response = requests.post(self.URL + 'key/api/v1/text2image/run', headers=self.AUTH_HEADERS, files=data)
         data = response.json()
+        # pprint(data)
         return data['uuid']
 
     def check_generation(self, request_id, attempts=10, delay=10):
@@ -82,7 +83,6 @@ def create_filename(folder: str, filename: str) -> str:
     """
 
     image_name = random_filename(prefix=filename)
-    print(image_name)
 
     if folder:
         if not os.path.exists(folder):
@@ -98,6 +98,7 @@ def generate_image(prompt: str, filename: str = 'filename', image_num: int = 1, 
 
     for i in range(image_num):
         filename_handled = create_filename(folder, filename)
+        print(f"{i + 1}: {filename_handled}")
 
         model_id = api.get_model()
         uuid = api.generate(prompt=prompt, model=model_id)
@@ -123,7 +124,11 @@ if __name__ == '__main__':
         "минималистский иллюстратор, линейная элегантность."
     )
 
+    prompt_4 = (
+        "Кот в кожанной куртке и темных очках играет на электрогитаре на сцене. Вокруг видны молнии и черепа в огне."
+    )
+
     # Just run it
-    FILENAME = 'girl_with_flowers'
-    generate_image(prompt=prompt_1, filename=FILENAME, image_num=10, folder=FILENAME)
+    FILENAME = 'heavy_metal_cat_2'
+    generate_image(prompt=prompt_4, filename=FILENAME, image_num=20, folder=FILENAME)
 
